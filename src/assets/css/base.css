@@ -1,0 +1,16 @@
+@import  "normalize.css";
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Avenir,STFangsong, Helvetica, Arial,STXihei,sans-serif;
+    background-color: #f1f2f6;
+}
+/*获取根html元素*/
+:root{
+    /*定义变量*/
+    --color-tint: #ffcccc;
+    --color-dark:#FC427B;
+    --color-yellow:#fff200;
+    --font-size:14px;
+}
