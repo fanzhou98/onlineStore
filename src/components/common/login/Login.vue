@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid">
+    <div class="container-fluid m-0">
       <div class="row">
         <div class="col login-wrap">
           <form method="post">

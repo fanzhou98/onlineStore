@@ -1,13 +1,19 @@
 <template>
   <div>
-    <nav aria-label="breadcrumb" >
-      <ol class="breadcrumb pl-3">
-        <li class="breadcrumb-item active " aria-current="page" v-for="(item,keys) in getURL" :key="keys">
-          <a href="" @click="itemClick(item)" v-if="!isActive(item)">{{item}}</a>
-          <i  @click="itemClick(item)" v-else>{{item}}</i>
-        </li>
-      </ol>
-    </nav>
+    <div class="container-fluid p-0 m-0 shadow-sm" style="height: 65px">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="breadcrumb" >
+            <ol class="breadcrumb pl-3">
+              <li class="breadcrumb-item active " aria-current="page" v-for="(item,keys) in getURL" :key="keys">
+                <a href="" @click="itemClick(item)" v-if="!isActive(item)">{{item}}</a>
+                <i  @click="itemClick(item)" v-else>{{item}}</i>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

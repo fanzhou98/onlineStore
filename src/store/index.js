@@ -9,6 +9,7 @@ const store = new Vuex.Store({
   state:{
     userInfo:null,
     isLogin:false,
+    goodsList:[]
   },
   mutations,
   getters,

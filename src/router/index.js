@@ -15,7 +15,11 @@ const Profile = ()=> import( "../views/profile/Profile")
 const Register =()=> import("components/common/register/Register")
 const Login = ()=> import("components/common/login/Login")
 const Cart = ()=> import("views/cart/Cart")
-
+const Shop = ()=> import("views/shop/Shop")
+const Order = ()=> import("views/profile/profileChildComponents/MyOrders")
+const EditAccount = ()=> import("views/profile/profileChildComponents/EditAccount")
+const ChangePassword = ()=> import("views/profile/profileChildComponents/ChangePassword")
+const DeleteAccount = ()=> import("views/profile/profileChildComponents/DeleteAccount")
 // router parameters
 // const login = [
 //
@@ -64,7 +68,34 @@ const routes = [
     component: Profile,
     meta:{
       title: 'Profile'
-    }
+    },
+    children:[
+      {
+        path:'',
+        redirect:'/profile/order',
+        component:Order
+      },
+      {
+        path:'profile',
+        redirect:'/profile/order'
+      },
+      {
+        path:'order',
+        component:Order
+      },
+      {
+        path:'account',
+        component: EditAccount
+      },
+      {
+        path:'password',
+        component: ChangePassword
+      },
+      {
+        path:'delete-account',
+        component: DeleteAccount
+      }
+    ]
   },
 
   // cart
@@ -75,6 +106,12 @@ const routes = [
       title: 'Cart'
     }
   },
+
+    // shop
+  {
+    path:'/shop',
+    component:Shop
+  }
 ];
 
 // create Vue-router instance

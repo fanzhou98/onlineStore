@@ -2,7 +2,11 @@
   <div>
     <div class="wrapper">
       <swiper ref="mySwiper" :options="swiperOptions">
-        <swiper-slide v-for="(item,i) in slides" :key="i"><img :src="item" alt=""></swiper-slide>
+        <swiper-slide v-for="(item,i) in slides" :key="i" class="align-content-center">
+          <div class="d-flex justify-content-center">
+            <img :src="item" alt="">
+          </div>
+         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
@@ -44,7 +48,7 @@
   }
   /* 图片100% */
   .swiper-slide img {
-    width: 100%;
+    width: 80%;
     height: 500px;
   }
 </style>
