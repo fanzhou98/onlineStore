@@ -41,8 +41,6 @@
       return{
         nameList: {
           'Register': '/home/register',
-          // 'My Account': '/profile',
-          // 'Go To Cart':'/cart',
           'Login':'/home/login'
         },
       }
@@ -56,7 +54,6 @@
         }
       },
       username(){
-        // console.log(sessionStorage.getItem('userInfo'))
         if (sessionStorage.getItem('userInfo') !== null){
           return JSON.parse(sessionStorage.getItem('userInfo')).uname
         }else {

@@ -3,7 +3,7 @@
     <Header></Header>
     <main-tab-bar></main-tab-bar>
     <BreadCrumb></BreadCrumb>
-    <keep-alive>
+    <keep-alive exclude="Cart">
       <router-view :key="$route.path"></router-view>
     </keep-alive>
   </div>
@@ -13,6 +13,9 @@
   import MainTabBar from "./components/content/mainTabBar/MainTabBar";
   import Header from "./components/content/header/Header";
   import BreadCrumb from "./components/common/breadcrumb/BreadCrumb";
+
+  import {getGoods} from 'network/goods'
+  import {getCartItem} from 'network/cart'
 export default {
   name: 'App',
   components: {
@@ -21,17 +24,31 @@ export default {
     BreadCrumb
   },
   created() {
-    // //在页面刷新时将vuex里的信息保存到sessionStorage里
-    //
-    //在页面加载时读取sessionStorage里的状态信息
+    // load user information when entered
     if (sessionStorage.getItem("userInfo") ) {
       this.$store.commit('userInfo',JSON.parse(sessionStorage.getItem("userInfo")))
-    }
-    //
-    // window.addEventListener("beforeunload",()=>{
-    //   sessionStorage.setItem("userInfo",JSON.stringify(this.$store.state.userInfo))
-    // })
 
+      // request user's cart's goods
+      let params = {
+        action : 'getCartList',
+        uid: this.$store.state.userInfo.uid
+      }
+      getCartItem(params).then(res=>{
+        sessionStorage.setItem('cartGoodsList',JSON.stringify(res.cartGoodsList))
+        this.$store.commit('setCartGoodsList', res.cartGoodsList)
+      }).catch((error)=>{
+        console.log(error)
+      })
+    }
+
+    // request shop goods
+    getGoods().then(res=>{
+      // get category
+      this.$store.commit('setGoodsCategory', res.catList)
+      // get goods
+      // sessionStorage.setItem('storeGoodsList',JSON.stringify(res.goodsList))
+      this.$store.commit('setGoodsItem', res.goodsList)
+    })
   }
 }
 </script>

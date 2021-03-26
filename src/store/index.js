@@ -7,9 +7,10 @@ import getters from "./getters";
 
 const store = new Vuex.Store({
   state:{
-    userInfo:null,
-    isLogin:false,
-    goodsList:[]
+    userInfo:'',
+    goodsCategory:[],
+    storeGoodsList:[],
+    cartGoodsList:[]
   },
   mutations,
   getters,

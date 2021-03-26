@@ -7,12 +7,13 @@
     <!--Goods Info-->
     <div class="text-center ">
       <!--Price-->
-      <p class="price text-left ml-5 mb-0" style="font-size: 30px; font-weight: 500">{{this.item.price}}</p>
+      <p class="price text-left ml-2 mt-2" style="font-size: 40px; font-weight: 500">{{this.item.price}}</p>
+      <p style="color: black; font-size: 25px" class="item-name">{{this.item.name}}</p>
       <!--Name-->
-      <p style="font-size: 20px">{{this.item.name}}</p>
+      <p style="font-size: 30px" class="mb-2"></p>
 
       <div class="d-flex justify-content-around">
-        <!--Add to Cart-->
+        <!--Add to Cart button-->
         <a class="btn btn-success text-center mb-2" style="border-radius: 10px" onclick="return false" @click.stop="addToCart()">
           <i class="fa fa-shopping-cart fa-2x"></i>
         </a>
@@ -51,13 +52,19 @@
 
 <style scoped>
   .goods_image{
-    width: 200px;
-    height: 300px;
+    width: 100%;
+    height: 400px;
   }
   .price{
     color: #e67e22;
   }
   .btn{
     width: 80px;
+  }
+  .item-name{
+    width: 100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
   }
 </style>

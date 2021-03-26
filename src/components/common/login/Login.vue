@@ -47,7 +47,7 @@
           this.$toast.error('username or password not legal')
         }
         else{
-          Login(this.username, this.password).then(res=> {
+          Login(this.username, this.password).then(res => {
             if(res.code === 200){
               console.log(res.user[0])
               // save session
@@ -55,10 +55,7 @@
               sessionStorage.setItem('userInfo',JSON.stringify(res.user[0]))
 
               // toast
-              this.$toast.success("login successfully",{
-                position:'top-center',
-                timeout:2000,
-              })
+              this.$toast.success("login successfully")
 
               // refresh
               setTimeout(()=>{
@@ -68,10 +65,7 @@
               //  Login failed
             }else if (res.code === 400){
               // toast
-              this.$toast.error("login failed",{
-                position:'top-center',
-                timeout:2000,
-              })
+              this.$toast.error("login failed")
             }
           }).catch((error) => {
             console.log(error);

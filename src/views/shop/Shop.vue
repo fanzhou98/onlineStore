@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="container-fluid mt-3" @click.stop="hideCart">
+    <div class="container-fluid mt-3">
       <div class="row">
         <div class="col-3">
           <div class="card">
 
             <!--Title-->
-            <div class="card-body"  >
+            <div class="card-body">
               <h5>
                 select what you want
               </h5>
@@ -32,35 +32,32 @@
       </div>
 
       <!--Prop window after clicking the cart button-->
-      <Add-to-cart v-show="showAddToCart" :goodsItem="this.selectedGoods"></Add-to-cart>
+      <PopUp v-show="showAddToCart" :goodsItem="this.selectedGoods" @closeWindow="closeWindow"></PopUp>
     </div>
   </div>
 </template>
 
 <script>
-import AddToCart from "./shopChildComponents/AddToCart";
+import PopUp from "./shopChildComponents/PopUp";
 import GoodsItem from "./shopChildComponents/GoodsItem";
-import {getGoods} from 'network/goods'
+
   export default {
     name: "Shop",
-    created() {
-      // network request
-      getGoods().then(res=>{
-        // get category
-        for (let item of res.catList){
-          this.category.push(item.category);
-          this.goodsList[item.category] = [];
-        }
-        // get goods
-        for (let good of res.goodsList){
-          this.goodsList[good.category].push(good)
-        }
-        this.currentCate = this.category[0]
-      })
-    },
     components:{
-      AddToCart,
+      PopUp,
       GoodsItem
+    },
+    created() {
+      // get category
+      for (let item of this.$store.state.goodsCategory){
+        this.category.push(item.category);
+        this.goodsList[item.category] = [];
+      }
+      // get goods
+      for (let good of this.$store.state.storeGoodsList){
+        this.goodsList[good.category].push(good)
+      }
+      this.currentCate = this.category[0]
     },
     data(){
       return{
@@ -68,7 +65,7 @@ import {getGoods} from 'network/goods'
         goodsList:{},
         currentCate:'',
         // selectedGoods needs to set a default image to avoid mounted with undefined value
-        selectedGoods:{image:'shirt1.jpeg'},
+        selectedGoods:{image:'shirt1.jpeg', price:'$10'},
         showAddToCart:false,
       }
     },
@@ -76,16 +73,15 @@ import {getGoods} from 'network/goods'
       cateClick(cate){
         this.currentCate = cate
       },
-      // Hide props window of addToCart
-      hideCart(){
-        if (this.showAddToCart === true){
-          this.showAddToCart = false
-        }
-      },
+      // user click cart button on the Shop page (GoodsItem pass addToCart(selectedGoods) event to Shop ->
+      // Shop get the event by addToCart() ->  Shop pass the param as selectedGoods to PopUp to display
       addToCart(goodsItem){
         this.selectedGoods = goodsItem
         this.showAddToCart = true
       },
+      closeWindow(){
+        this.showAddToCart = false
+      }
     },
   }
 </script>
