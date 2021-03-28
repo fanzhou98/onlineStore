@@ -20,6 +20,7 @@ const Order = ()=> import("views/profile/profileChildComponents/MyOrders")
 const EditAccount = ()=> import("views/profile/profileChildComponents/EditAccount")
 const ChangePassword = ()=> import("views/profile/profileChildComponents/ChangePassword")
 const DeleteAccount = ()=> import("views/profile/profileChildComponents/DeleteAccount")
+const History = ()=> import("views/history/History")
 // router parameters
 // const login = [
 //
@@ -111,6 +112,13 @@ const routes = [
   {
     path:'/shop',
     component:Shop
+  },
+
+    // browser history
+  {
+    path:'/history',
+    component:History
+
   }
 ];
 

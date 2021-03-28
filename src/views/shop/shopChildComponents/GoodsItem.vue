@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 goods_item d-block align-items-center mb-2 p-2 shadow-sm">
+  <div class="col-4 goods_item d-block align-items-center mb-2 p-2 shadow-sm" @click.stop="addToCart()">
     <!--Goods Image-->
     <div class="d-flex justify-content-between align-items-center">
       <img :src="global_const.GoodsImage_Prefix + this.item.image" alt="" class="goods_image m-auto">
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+  import {saveBrowserHistory} from 'network/user'
   export default {
     name: "GoodsItem",
     props:{
@@ -37,14 +38,14 @@
         }
       }
     },
-    data(){
-      return{
-
-      }
-    },
     methods:{
       addToCart(){
         this.$emit('addToCart', this.item)
+
+        // save user's browser HistorY
+        let goods_id = this.item.goods_id
+        let uid = JSON.parse(sessionStorage.getItem('userInfo')).uid
+        saveBrowserHistory(goods_id, uid)
       }
     }
   }

@@ -3,7 +3,7 @@
     <Header></Header>
     <main-tab-bar></main-tab-bar>
     <BreadCrumb></BreadCrumb>
-    <keep-alive exclude="Cart">
+    <keep-alive :exclude="['History','Cart']">
       <router-view :key="$route.path"></router-view>
     </keep-alive>
   </div>
@@ -25,7 +25,7 @@ export default {
   },
   created() {
     // load user information when entered
-    if (sessionStorage.getItem("userInfo") ) {
+    if (sessionStorage.getItem("userInfo")) {
       this.$store.commit('userInfo',JSON.parse(sessionStorage.getItem("userInfo")))
 
       // request user's cart's goods
@@ -44,9 +44,10 @@ export default {
     // request shop goods
     getGoods().then(res=>{
       // get category
+      sessionStorage.setItem('storeGoodsCategory',JSON.stringify(res.catList))
       this.$store.commit('setGoodsCategory', res.catList)
       // get goods
-      // sessionStorage.setItem('storeGoodsList',JSON.stringify(res.goodsList))
+      sessionStorage.setItem('storeGoodsList',JSON.stringify(res.goodsList))
       this.$store.commit('setGoodsItem', res.goodsList)
     })
   }

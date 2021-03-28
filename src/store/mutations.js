@@ -11,4 +11,7 @@ export default {
   setCartGoodsList(state, payload){
     state.cartGoodsList = payload
   },
+  setHistoryGoodsList(state, payload){
+    state.historyGoodsList = payload
+  }
 }

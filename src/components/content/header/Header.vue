@@ -10,17 +10,20 @@
           <div class="text">Total price: $300</div>
         </div>
 
-        <!--Right hand link-->
+        <!--Right hand view when not logged-->
         <div class="col-md-5 d-flex align-items-center justify-content-end text-white" v-if="!isLogged">
           <a href="" onclick="return false;" class="mr-4"
              v-for="(value, name) in this.nameList" :key="value"
              @click="itemClick(value)">{{name}}</a>
         </div>
 
+        <!--Right hand veiw when logged-->
         <div v-else class="col-md-6 d-flex align-items-center justify-content-end text-white">
           <a href="" onclick="return false;" @click="itemClick('/profile')">My Account</a>
-          <a href="" onclick="return false;" @click="itemClick('/cart')" class="mr-5 ml-2">Go To Cart</a>
-          <img :src="userphoto" alt="" style="width: 40px; height: 40px">
+          <a href="" onclick="return false;" @click="itemClick('/cart')" class="ml-2">Go To Cart</a>
+          <a href="" onclick="return false;" @click="itemClick('/history')" class="mr-3 ml-2">Browser History</a>
+
+          <img :src="userPhoto" alt="" style="width: 40px; height: 40px">
 
           <div>
             <a>{{username}}</a>
@@ -46,7 +49,7 @@
       }
     },
     computed:{
-      userphoto(){
+      userPhoto(){
         if (sessionStorage.getItem('userInfo')){
           return this.global_const.UserPhoto_Prefix + this.$store.state.userInfo.photo
         }else {
@@ -78,8 +81,7 @@
         this.$router.push('/home')
         this.$router.go(0)
       }
-    },
-
+    }
   }
 </script>
 

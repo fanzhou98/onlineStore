@@ -10,7 +10,8 @@ const store = new Vuex.Store({
     userInfo:'',
     goodsCategory:[],
     storeGoodsList:[],
-    cartGoodsList:[]
+    cartGoodsList:[],
+    historyGoodsList:[]
   },
   mutations,
   getters,

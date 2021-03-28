@@ -48,13 +48,26 @@ import GoodsItem from "./shopChildComponents/GoodsItem";
       GoodsItem
     },
     created() {
+      // get goods use $store
+      // // get category
+      // for (let item of this.$store.state.goodsCategory){
+      //   this.category.push(item.category);
+      //   this.goodsList[item.category] = [];
+      // }
+      // // get goods
+      // for (let good of this.$store.state.storeGoodsList){
+      //   this.goodsList[good.category].push(good)
+      // }
+      // this.currentCate = this.category[0]
+
+      // get goods using sessionStorage
       // get category
-      for (let item of this.$store.state.goodsCategory){
+      for (let item of JSON.parse(sessionStorage.getItem('storeGoodsCategory'))){
         this.category.push(item.category);
         this.goodsList[item.category] = [];
       }
       // get goods
-      for (let good of this.$store.state.storeGoodsList){
+      for (let good of JSON.parse(sessionStorage.getItem('storeGoodsList'))){
         this.goodsList[good.category].push(good)
       }
       this.currentCate = this.category[0]
