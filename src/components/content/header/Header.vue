@@ -6,8 +6,8 @@
         <!--Welcome and cart basic information-->
         <div class="col-md-6 align-items-center d-flex">
           <button class="btn-success" @click="itemClick('/home')">WELCOME</button>
-          <div class="text ml-2">4 items in your cart</div>
-          <div class="text">Total price: $300</div>
+          <div class="text ml-2">{{cartLength}} items in your cart <small style="color: #fff200">|</small></div>
+          <div class="text ml-2">Total price: $ {{totalPrice}}</div>
         </div>
 
         <!--Right hand view when not logged-->
@@ -69,6 +69,16 @@
         }else{
           return false
         }
+      },
+      cartLength(){
+        return this.$store.state.cartGoodsList.length
+      },
+      totalPrice(){
+        let totalPrice = 0
+        for(let i of this.$store.state.cartGoodsList){
+          totalPrice += parseInt(i.total_price)
+      }
+        return totalPrice
       }
     },
     methods:{

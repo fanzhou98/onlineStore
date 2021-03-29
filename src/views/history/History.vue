@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <div class="text-center mt-3" v-if="isEmpty">
-      <h2>Your browser history is empty, go look some goods!</h2>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="text-center mt-3" v-if="isEmpty">
+          <h2>Your browser history is empty, go look some goods!</h2>
+        </div>
+        <HistoryItem class="wrap shadow-sm" v-for="(item, key) in this.history_item" :key="key" :history_item="item" v-else></HistoryItem>
     </div>
-    <HistoryItem v-for="(item, key) in this.history_item" :key="key" :history_item="item" v-else></HistoryItem>
   </div>
 </template>
 
@@ -41,5 +43,8 @@
 </script>
 
 <style scoped>
-
+.wrap {
+  background-color:  #ecf0f1;
+  border-radius: 10px;;
+}
 </style>

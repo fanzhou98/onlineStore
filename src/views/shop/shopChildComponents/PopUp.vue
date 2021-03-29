@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div class="cart container" >
-      <div class="row">
+    <div class="cart container shadow-sm" >
+      <div class="row p-2">
         <div class="col-5">
-          <img :src="global_const.GoodsImage_Prefix+goodsItem.image" style="width: 100%; height: 300px">
+          <img :src="global_const.GoodsImage_Prefix+goodsItem.image" style="width: 100%; height: 300px; border-radius: 10px">
         </div>
         <div class="col-7">
           <div class="d-flex justify-content-between">
@@ -12,9 +12,9 @@
           </div>
 
           <div class="count d-flex align-items-center justify-content-around">
-            <a class="btn btn-primary" @click="addNum"><i class="fa fa-plus"></i></a>
-            <div class="text-center">{{this.itemNumber}}</div>
             <a class="btn btn-primary" @click="minusNum"><i class="fa fa-minus"></i></a>
+            <div class="text-center">{{this.itemNumber}}</div>
+            <a class="btn btn-primary" @click="addNum"><i class="fa fa-plus"></i></a>
           </div>
 
           <div>
@@ -68,34 +68,44 @@
         }
       },
       addToCart(){
-        this.goodsItem.totalPrice = this.totalPrice
-        this.goodsItem.itemNumber = this.itemNumber
-        this.goodsItem.uid = this.$store.state.userInfo.uid
-        addGoods(this.goodsItem).then(res=>{
-          // refresh cart item
-          if (res.code === 200){
-            let params = {
-              action : 'getCartList',
-              uid: this.$store.state.userInfo.uid
+        if (this.$store.state.userInfo){
+          // store goods information
+          this.goodsItem.totalPrice = this.totalPrice
+          this.goodsItem.itemNumber = this.itemNumber
+          this.goodsItem.uid = this.$store.state.userInfo.uid
+
+          // store new goods in DB
+          addGoods(this.goodsItem).then(res=>{
+            // refresh cart item
+            if (res.code === 200){
+              let params = {
+                action : 'getCartList',
+                uid: this.$store.state.userInfo.uid
+              }
+              // request new cartGoodsList
+              getCartItem(params).then((res)=>{
+                sessionStorage.setItem('cartGoodsList',JSON.stringify(res.cartGoodsList))
+                this.$store.commit('setCartGoodsList', res.cartGoodsList)
+              }).catch((error)=>{
+                console.log(error)
+              })
+              // toast
+              this.$toast.success("add successfully");
+              // close Popup window
+              this.$emit('closeWindow')
+            }else{
+              this.$toast.error("add failed")
             }
-            getCartItem(params).then((res)=>{
-              console.log(res)
-              sessionStorage.setItem('cartGoodsList',JSON.stringify(res.cartGoodsList))
-              this.$store.commit('setCartGoodsList', res.cartGoodsList)
-            }).catch((error)=>{
-              console.log(error)
-            })
-            // toast
-            this.$toast.success("add successfully");
-            // send clsoe event to parent
-            this.$emit('closeWindow')
-          }else{
+          }).catch((error)=>{
+            console.log(error)
             this.$toast.error("add failed")
-          }
-        }).catch((error)=>{
-          console.log(error)
-          this.$toast.error("add failed")
-        })
+          })
+        } else{
+          this.$toast.error('please log in')
+          setTimeout(()=>{
+            this.$router.push('/home/login/')
+          },500)
+        }
       }
     },
   }
@@ -111,5 +121,7 @@
     width: 600px;
     height: 400px;
     background-color: white;
+    border-radius: 20px;
+    background-color: #ecf0f1;
   }
 </style>

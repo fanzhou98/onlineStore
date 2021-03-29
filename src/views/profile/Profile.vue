@@ -3,13 +3,15 @@
     <div class="container-fluid mt-3">
       <div class="row">
         <div class="col-3">
-          <div class="card" style="width: 18rem;">
-            <img src="" class="card-img-top" alt="">
+          <div class="card shadow-sm" style="width: 18rem;">
+            <!-- user info -->
+            <img :src="global_const.UserPhoto_Prefix + this.userInfo.photo" class="card-img-top p-2" style="border-radius: 20px" alt="">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title text-center">{{this.userInfo.uname}}</h5>
+              <p class="card-text text-center">{{this.userInfo.email}}</p>
             </div>
 
+            <!-- Profile Item list-->
             <ul class="list-group list-group-flush">
               <li class="list-group-item" v-for="(key, item) in this.listItem" :key="key">
                 <a href="" onclick="return false" class="card-link" @click="ItemClick(key)" >{{item}}</a>
@@ -28,8 +30,8 @@
 <script>
   export default {
     name: "Profile",
-    components:{
-
+    created(){
+      this.userInfo = this.$store.state.userInfo
     },
     data(){
       return{
@@ -38,7 +40,8 @@
           "Edit Account": "/profile/account",
           "Change Password" : "/profile/password",
           "DeleteAccount" : "/profile/delete-account"
-        }
+        },
+        userInfo:null
       }
     },
     computed:{

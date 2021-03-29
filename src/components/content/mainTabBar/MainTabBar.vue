@@ -42,10 +42,14 @@
     font-family:  Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 15px;
+    height: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .nav-text:hover{
-    color: cadetblue;
-    border-bottom: 1px solid black;
+    color: #57606f;
+    background-color:#95a5a6;
   }
   .col-2{
     padding: 0;

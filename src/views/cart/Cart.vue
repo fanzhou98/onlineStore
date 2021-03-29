@@ -11,8 +11,8 @@
 
 <script>
   import cartItem from "./cartChildComponents/cartItem";
-  
 
+  import {updateCartItem} from 'network/cart'
   export default {
     name: "Cart",
     components:{
@@ -31,6 +31,12 @@
         return this.goodsList.length === 0;
       }
     },
+    beforeRouteLeave(to, from, next){
+      for (let item of this.goodsList){
+        updateCartItem(item)
+      }
+      next()
+    }
   }
 </script>
 

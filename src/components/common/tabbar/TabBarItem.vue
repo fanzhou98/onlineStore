@@ -29,6 +29,7 @@
 <style scoped>
   .item-wrap{
     color: black;
+
   }
   .actived{
     color: cadetblue;

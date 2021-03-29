@@ -1,13 +1,16 @@
 import {request} from "./request";
 import qs from 'qs'
 
+// add goods into cart
 export function addGoods(payload) {
   return request({
     method: 'post',
     url:'/User/cart/',
-    data: qs.stringify({goodsItem:payload})
+    data: qs.stringify({action:'addGoods',goodsItem:payload})
   })
 }
+
+// delete cart item
 export function deleteGoods(payload) {
   return request({
     method: 'get',
@@ -20,6 +23,8 @@ export function deleteGoods(payload) {
   })
 }
 
+
+// read cart item
 export function getCartItem(param) {
   return request({
     method:'get',
@@ -28,5 +33,20 @@ export function getCartItem(param) {
       action:param.action,
       uid: param.uid
     }
+  })
+}
+
+// update cart item
+export function updateCartItem(payload) {
+  return request({
+    method:'post',
+    url:'/User/cart/',
+    data: qs.stringify({
+      action:'updateGoods',
+      goods_id: payload.goods_id,
+      uid: payload.uid,
+      number: payload.number,
+      total_price: payload.total_price
+    })
   })
 }

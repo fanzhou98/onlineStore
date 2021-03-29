@@ -1,18 +1,16 @@
 <template>
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img :src="global_const.GoodsImage_Prefix + history_item.image" class="card-img" alt="">
+  <div class="row no-gutters card mb-1" style="width: 100%; height: 200px;">
+      <div class="col-md-4 d-flex justify-content-center">
+        <img :src="global_const.GoodsImage_Prefix + history_item.image" class="p-2" alt="" style="height: 200px; width: 150px; border-radius: 20px">
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          <a class="btn btn-danger" @click="deleteHistoryItem(history_item.goods_id, history_item.uid)"><i class="fa fa-trash"></i></a>
+          <h3 class="card-title">{{history_item.name}}</h3>
+          <p class="card-text text-muted">{{history_item.price}}</p>
+          <a class="btn btn-danger" @click="deleteHistoryItem(history_item.goods_id, history_item.uid)"><i class="fa fa-trash fa-2x"></i></a>
         </div>
       </div>
-    </div>
-  </div>
+</div>
 </template>
 
 <script>

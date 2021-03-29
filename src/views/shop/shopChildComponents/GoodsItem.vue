@@ -40,12 +40,21 @@
     },
     methods:{
       addToCart(){
+        // open popup window
         this.$emit('addToCart', this.item)
 
-        // save user's browser HistorY
-        let goods_id = this.item.goods_id
-        let uid = JSON.parse(sessionStorage.getItem('userInfo')).uid
-        saveBrowserHistory(goods_id, uid)
+        // verify user status
+        if(this.$store.state.userInfo){
+          // save user's browser history
+          let goods_id = this.item.goods_id
+          let uid = JSON.parse(sessionStorage.getItem('userInfo')).uid
+          saveBrowserHistory(goods_id, uid)
+        }else {
+          this.$toast.error('please log in')
+          setTimeout(()=>{
+            this.$router.push('/home/login/')
+          },500)
+        }
       }
     }
   }
