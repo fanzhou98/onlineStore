@@ -7,7 +7,7 @@
     <!--Goods Info-->
     <div class="text-center ">
       <!--Price-->
-      <p class="price text-left ml-2 mt-2" style="font-size: 40px; font-weight: 500">{{this.item.price}}</p>
+      <p class="price text-left ml-2 mt-2">{{this.item.price}}</p>
       <p style="color: black; font-size: 25px" class="item-name">{{this.item.name}}</p>
       <!--Name-->
       <p style="font-size: 30px" class="mb-2"></p>
@@ -67,6 +67,8 @@
   }
   .price{
     color: #e67e22;
+    font-size: 40px;
+    font-weight: 500
   }
   .btn{
     width: 80px;

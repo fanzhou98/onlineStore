@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid mt-3">
       <div class="row">
-        <div class="col-3">
+        <div class="col-sm-3">
           <div class="card shadow-sm" style="width: 18rem;">
             <!-- user info -->
             <img :src="global_const.UserPhoto_Prefix + this.userInfo.photo" class="card-img-top p-2" style="border-radius: 20px" alt="">
@@ -19,7 +19,8 @@
             </ul>
           </div>
         </div>
-        <div class="col-9">
+
+        <div class="col-sm-9">
           <router-view></router-view>
         </div>
       </div>

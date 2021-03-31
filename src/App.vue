@@ -14,6 +14,7 @@
   import Header from "./components/content/header/Header";
   import BreadCrumb from "./components/common/breadcrumb/BreadCrumb";
 
+
   import {getGoods} from 'network/goods'
   import {getCartItem} from 'network/cart'
 export default {

@@ -5,7 +5,7 @@
 
         <!--Welcome and cart basic information-->
         <div class="col-md-6 align-items-center d-flex">
-          <button class="btn-success" @click="itemClick('/home')">WELCOME</button>
+          <button type="button" class="btn btn-success text-nowrap" @click="itemClick('/home')">WELCOME</button>
           <div class="text ml-2">{{cartLength}} items in your cart <small style="color: #fff200">|</small></div>
           <div class="text ml-2">Total price: $ {{totalPrice}}</div>
         </div>
@@ -27,7 +27,7 @@
 
           <div>
             <a>{{username}}</a>
-            <button @click="LogOut" >log out</button>
+            <a class="btn btn-secondary" @click="LogOut" >log out</a>
           </div>
 
         </div>

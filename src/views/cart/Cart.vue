@@ -3,7 +3,7 @@
     <div v-if="isEmpty" class="text-center mt-3">
       <h2>Your cart is empty, go add some items!</h2>
     </div>
-    <div v-else>
+    <div v-else  style="height: 100vh;">
       <cartItem v-for="(item, key) in this.goodsList" :key="key" :cartItem="item"></cartItem>
     </div>
   </div>

@@ -1,25 +1,46 @@
 <template>
   <div>
-    <div class="cart container shadow-sm" >
-      <div class="row p-2">
-        <div class="col-5">
+    <div class="cart container shadow-sm " >
+      <div class="row p-2" >
+        <!--left image -->
+        <div class="col-5 d-flex justify-content-center align-items-center" style="height: 400px">
           <img :src="global_const.GoodsImage_Prefix+goodsItem.image" style="width: 100%; height: 300px; border-radius: 10px">
         </div>
+
+        <!-- goods information -->
         <div class="col-7">
-          <div class="d-flex justify-content-between">
+          <div class="row">
+            <div class="col d-flex justify-content-end align-items-end mt-2">
+              <button class="btn btn-danger" @click="closeWindow"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+
+          <div class="row">
+
+          </div>
+
+          <div style="font-size: 30px">
+            <p>{{goodsItem.name}}</p>
+          </div>
+
+          <!-- price -->
+          <div class="price d-flex justify-content-between">
             <p>Price: {{goodsItem.price}}</p>
-            <button class="btn btn-warning" @click="closeWindow">X</button>
           </div>
 
-          <div class="count d-flex align-items-center justify-content-around">
-            <a class="btn btn-primary" @click="minusNum"><i class="fa fa-minus"></i></a>
-            <div class="text-center">{{this.itemNumber}}</div>
-            <a class="btn btn-primary" @click="addNum"><i class="fa fa-plus"></i></a>
+          <!-- number & change number button -->
+          <div class="count d-flex align-items-center justify-content-end mt-5">
+            <a class="btn btn-primary d-flex justify-content-center align-items-center" @click="minusNum"><i class="fa fa-minus"></i></a>
+            <div class="text-center ml-5 mr-5" style="font-size: 20px">{{this.itemNumber}}</div>
+            <a class="btn btn-primary  d-flex justify-content-center align-items-center" @click="addNum"><i class="fa fa-plus"></i></a>
           </div>
 
-          <div>
-            <p>Total Price:${{totalPrice}}</p>
-            <a class="btn btn-success" @click="addToCart"><i class="fa fa-cart-plus"></i><i class="fa fa-plus ml-1"></i></a>
+          <!-- total price -->
+          <div class="total_price_wrap">
+            <p class="text-right">Total Price:${{totalPrice}}</p>
+            <div class="d-flex justify-content-end align-items-end">
+              <a class="btn btn-success" @click="addToCart">Add to cart</a>
+            </div>
           </div>
 
         </div>
@@ -123,5 +144,22 @@
     background-color: white;
     border-radius: 20px;
     background-color: #ecf0f1;
+  }
+  .price{
+    color: #e67e22;
+    font-size: 30px;
+    font-weight: 500
+  }
+  .count >a{
+    height: 50px;
+    width: 50px;
+  }
+  .total_price_wrap{
+    margin-top: 20px;
+  }
+  .total_price_wrap >p{
+    color: #e67e22;
+    font-size: 30px;
+    font-weight: 500
   }
 </style>

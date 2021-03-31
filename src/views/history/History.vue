@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="text-center mt-3" v-if="isEmpty">
           <h2>Your browser history is empty, go look some goods!</h2>
         </div>
