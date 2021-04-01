@@ -6,8 +6,10 @@
         <!--Welcome and cart basic information-->
         <div class="col-md-6 align-items-center d-flex">
           <button type="button" class="btn btn-success text-nowrap" @click="itemClick('/home')">WELCOME</button>
-          <div class="text ml-2">{{cartLength}} items in your cart <small style="color: #fff200">|</small></div>
-          <div class="text ml-2">Total price: $ {{totalPrice}}</div>
+          <div v-show="isLogged">
+            <div class="text ml-2">{{cartLength}} items in your cart</div>
+            <div class="text ml-2">Total price: $ {{totalPrice}}</div>
+          </div>
         </div>
 
         <!--Right hand view when not logged-->
@@ -46,6 +48,7 @@
           'Register': '/home/register',
           'Login':'/home/login'
         },
+        Logged: !this.$store.state.userInfo === ''
       }
     },
     computed:{

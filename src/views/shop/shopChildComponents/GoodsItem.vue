@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 goods_item d-block align-items-center mb-2 p-2 shadow-sm" @click.stop="addToCart()">
+  <div class="col-4 goods_item d-block align-items-center mb-2 p-2 shadow-sm" @click.stop="openPopWindow">
     <!--Goods Image-->
     <div class="d-flex justify-content-between align-items-center">
       <img :src="global_const.GoodsImage_Prefix + this.item.image" alt="" class="goods_image m-auto">
@@ -39,6 +39,18 @@
       }
     },
     methods:{
+      openPopWindow(){
+        // open popup window
+        this.$emit('addToCart', this.item)
+
+        // verify user status to decide whether add to browser history
+        if(this.$store.state.userInfo){
+          // save user's browser history
+          let goods_id = this.item.goods_id
+          let uid = JSON.parse(sessionStorage.getItem('userInfo')).uid
+          saveBrowserHistory(goods_id, uid)
+        }
+      },
       addToCart(){
         // open popup window
         this.$emit('addToCart', this.item)

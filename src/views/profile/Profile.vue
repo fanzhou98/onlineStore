@@ -7,7 +7,7 @@
             <!-- user info -->
             <img :src="global_const.UserPhoto_Prefix + this.userInfo.photo" class="card-img-top p-2" style="border-radius: 20px" alt="">
             <div class="card-body">
-              <h5 class="card-title text-center">{{this.userInfo.uname}}</h5>
+              <h5 class="card-title text-center">{{this.userInfo.nick_name}}</h5>
               <p class="card-text text-center">{{this.userInfo.email}}</p>
             </div>
 
@@ -44,9 +44,6 @@
         },
         userInfo:null
       }
-    },
-    computed:{
-
     },
     methods:{
       ItemClick(path){

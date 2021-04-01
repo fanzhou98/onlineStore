@@ -5,7 +5,7 @@ import qs from 'qs'
 export function addGoods(payload) {
   return request({
     method: 'post',
-    url:'/User/cart/',
+    url:'/user/cart/',
     data: qs.stringify({action:'addGoods',goodsItem:payload})
   })
 }
@@ -14,7 +14,7 @@ export function addGoods(payload) {
 export function deleteGoods(payload) {
   return request({
     method: 'get',
-    url:'/User/cart/',
+    url:'/user/cart/',
     params:{
       action: payload.action,
       uid: payload.uid,
@@ -28,7 +28,7 @@ export function deleteGoods(payload) {
 export function getCartItem(param) {
   return request({
     method:'get',
-    url:'/User/cart/',
+    url:'/user/cart/',
     params:{
       action:param.action,
       uid: param.uid
@@ -40,7 +40,7 @@ export function getCartItem(param) {
 export function updateCartItem(payload) {
   return request({
     method:'post',
-    url:'/User/cart/',
+    url:'/user/cart/',
     data: qs.stringify({
       action:'updateGoods',
       goods_id: payload.goods_id,

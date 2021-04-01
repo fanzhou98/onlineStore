@@ -55,12 +55,18 @@
         }
         // pass the test and register the user
         else{
-          Register(this.username, this.password).then(()=>{
-            this.$toast.success("register successfully");
-            setTimeout(()=>{
-              this.$router.push('/home');
-              this.$router.go(0)
-            },2000)
+          Register(this.username, this.password).then(res =>{
+            if(res['code'] === 200){
+              this.$toast.success("register successfully");
+              setTimeout(()=>{
+                this.$router.push('/home');
+                this.$router.go(0)
+              },1500)
+            }else if(res['code'] === 207){
+              this.$toast.error("register failed, user exist");
+            }else{
+              this.$toast.error("register failed");
+            }
           }).catch((error)=>{
             console.log(error)
           })
@@ -80,7 +86,7 @@
     text-align: center;
   }
   /* text */
-  .h1{
+  h1{
     color: black;
     font-weight: 300;
   }
@@ -110,7 +116,7 @@
     border: 2px solid #0a3d62;
     padding: 14px 40px;
     outline: none;
-    color: white;
+    color: black;
     border-radius: 24px;
     cursor:pointer;
   }

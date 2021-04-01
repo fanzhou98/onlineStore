@@ -5,7 +5,7 @@ import qs from 'qs'
 export function Login(username, password){
   return request({
     method:'post',
-    url:'/User/login/',
+    url:'/user/login/',
     headers:{'Content-Type': 'application/x-www-form-urlencoded'},
     data:qs.stringify({'username': username, 'password':password})
   })
@@ -15,7 +15,7 @@ export function Login(username, password){
 export function Register(username, password){
   return request({
     method:'post',
-    url:'/User/register/',
+    url:'/user/register/',
     headers:{'Content-Type': 'application/x-www-form-urlencoded'},
     data:qs.stringify({'username': username, 'password':password })
   })
@@ -25,7 +25,7 @@ export function Register(username, password){
 export function readBrowserHistory(uid) {
   return request({
     method: 'post',
-    url:'/User/history/',
+    url:'/user/history/',
     data:qs.stringify({
       'action': 'read',
       'uid':uid})
@@ -36,7 +36,7 @@ export function readBrowserHistory(uid) {
 export function saveBrowserHistory(goods_id, uid) {
   return request({
     method: 'post',
-    url:'/User/history/',
+    url:'/user/history/',
     data:qs.stringify({
       'action': 'save',
       'goods_id':goods_id,
@@ -48,7 +48,7 @@ export function saveBrowserHistory(goods_id, uid) {
 export function deleteHistoryItem(goods_id, uid) {
   return request({
     method: 'post',
-    url:'/User/history/',
+    url:'/user/history/',
     data:qs.stringify({
       'action': 'delete',
       'goods_id':goods_id,

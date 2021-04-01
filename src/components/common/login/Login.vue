@@ -6,13 +6,13 @@
           <form method="post">
             <h1>Login</h1>
             <input type="text" name ="username" placeholder="Username" class="input-form" v-model="username">
-            <input type="password" name="password" placeholder="Password" class="input-form" v-model="password">
+            <input type="password" name="password" placeholder="Password" class="input-form" v-model="password"  @keyup.enter="ItemClick">
           </form>
           <div>
             <button  @click="ItemClick">Login</button>
           </div>
           <div>
-            <b class="register">Register</b>
+            <b class="register" @click="goToRegister">Register</b>
           </div>
         </div>
       </div>
@@ -71,6 +71,9 @@
             console.log(error);
           })
         }
+      },
+      goToRegister(){
+        this.$router.push('/home/register')
       }
     },
   }
