@@ -42,3 +42,16 @@ export function changePassword(uid, password) {
   })
 }
 
+// delete account
+export function deleteAccount(uid, password) {
+  return request({
+    method:'post',
+    url:'/user/profile/',
+    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+    data: qs.stringify({
+      'action':'deleteAccount',
+      'uid':uid,
+      'password':password
+    })
+  })
+}

@@ -89,6 +89,7 @@
         this.$router.push(path)
       },
       LogOut(){
+        this.$store.commit("clearUserInfo")
         sessionStorage.removeItem('userInfo')
         sessionStorage.clear();
         this.$router.push('/home')

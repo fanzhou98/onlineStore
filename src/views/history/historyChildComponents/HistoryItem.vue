@@ -40,7 +40,7 @@
           }
           setTimeout(()=>{
             this.$router.go(0)
-          },150)
+          },1000)
         })
       }
     }

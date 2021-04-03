@@ -19,7 +19,7 @@
         </a>
         <!--Like-->
         <a class="btn btn-warning mb-2" style="border-radius: 10px">
-          <i class="fa fa-heart fa-2x" style="color: red"></i>
+          <i class="fa fa-star-o fa-2x" :class="{isFavourite:this.isFavourite}" style="color: white"></i>
         </a>
       </div>
     </div>
@@ -90,5 +90,8 @@
     overflow:hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
+  }
+  .isFavourite{
+    color: red;
   }
 </style>

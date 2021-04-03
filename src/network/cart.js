@@ -16,7 +16,7 @@ export function deleteGoods(payload) {
     method: 'get',
     url:'/user/cart/',
     params:{
-      action: payload.action,
+      action: 'delete',
       uid: payload.uid,
       item_id: payload.item_id
     }

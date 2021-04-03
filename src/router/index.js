@@ -21,6 +21,7 @@ const EditAccount = ()=> import("views/profile/profileChildComponents/EditAccoun
 const ChangePassword = ()=> import("views/profile/profileChildComponents/ChangePassword")
 const DeleteAccount = ()=> import("views/profile/profileChildComponents/DeleteAccount")
 const History = ()=> import("views/history/History")
+const ContactUs = ()=> import("views/contactus/ContactUs")
 // router parameters
 // const login = [
 //
@@ -118,6 +119,13 @@ const routes = [
   {
     path:'/history',
     component:History
+
+  },
+
+  // Contact Us
+  {
+    path:'/contact',
+    component:ContactUs
 
   }
 ];

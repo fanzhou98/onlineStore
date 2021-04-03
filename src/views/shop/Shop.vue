@@ -8,7 +8,7 @@
             <!--Title-->
             <div class="card-body">
               <h5>
-                select what you want
+                Categories
               </h5>
             </div>
 

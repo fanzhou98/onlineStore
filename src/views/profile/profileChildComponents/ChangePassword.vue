@@ -35,25 +35,29 @@
     },
     methods:{
       updatePassword(){
+        let re = /^\w{4,12}$/;
+
         if (this.old_password && this.new_password){
           if(this.old_password === this.$store.state.userInfo.password){
-            changePassword(this.uid, this.new_password).then(res=>{
-              console.log(res)
-
-              /*
-              * reload updated userInfo
-              * */
-              getUserInfo(this.uid).then(result =>{
-                // save session
-                this.$store.commit('userInfo',result.userInfo[0])
-                sessionStorage.setItem('userInfo',JSON.stringify(result.userInfo[0]))
-                // refresh
-                setTimeout(()=>{
-                  this.$router.go(0)
-                },1500)
+            if(re.test(this.new_password)){
+              changePassword(this.uid, this.new_password).then(()=>{
+                /*
+                * reload updated userInfo
+                * */
+                getUserInfo(this.uid).then(result =>{
+                  // save session
+                  this.$store.commit('userInfo',result.userInfo[0])
+                  sessionStorage.setItem('userInfo',JSON.stringify(result.userInfo[0]))
+                  // refresh
+                  setTimeout(()=>{
+                    this.$router.go(0)
+                  },1500)
+                })
+                this.$toast.success('update successfully')
               })
-              this.$toast.success('update successfully')
-            })
+            }else {
+              this.$toast.error('new password format wrong')
+            }
           }else {
             this.$toast.error('old password wrong')
           }

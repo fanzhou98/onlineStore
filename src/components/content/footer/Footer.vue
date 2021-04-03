@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid wrapper d-flex justify-content-center align-items-center mt-4" >
+  <div class="container-fluid wrapper d-flex justify-content-center align-items-center mt-1"  >
     <div class="row text-center d-flex justify-content-center align-items-center" style="font-size: 15px">
       <div class="col-12">
         <div class="" style="font-size: 15px; font-weight: lighter">

@@ -5,7 +5,9 @@ export default {
   userInfo(state, payload){
     state.userInfo = payload
   },
-
+  clearUserInfo(state){
+    state.userInfo = ''
+  },
   /*
   *   Goods
   * */

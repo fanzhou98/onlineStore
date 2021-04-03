@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container-fluid p-0 m-0 shadow-sm" style="height: 65px">
+    <div class="container-fluid p-0 m-0 shadow-sm" style="height: 54px">
       <div class="row">
-        <div class="col">
+        <div class="col p-0">
           <nav aria-label="breadcrumb" >
             <ol class="breadcrumb pl-3">
               <li class="breadcrumb-item active " aria-current="page" v-for="(item,keys) in getURL" :key="keys">
@@ -36,12 +36,9 @@
         this.$router.push(path)
       },
       isActive(item){
-        return this.active =  item == 'login' || item == 'register'
+        return this.active =  item === 'login' || item === 'register'
       }
     },
-    mounted: function () {
-
-    }
   }
 </script>
 
