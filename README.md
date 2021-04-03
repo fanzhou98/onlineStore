@@ -1,29 +1,28 @@
 # mydevstore
 
 ## 1.Project setup 
-#### install all the require packages
+#### 1.1 Virtual host setup 
+##### 1.back-end 
+*   set document root  as 'mydevstoreAPI' 
+*   set server name as 'mydevstoreAPI.com'
+*   set port number as '8888'
+*   source file should be 'index.php'
+*   the back-end configuration in front end is in file 'mydevstore/vue.config.js' 
+you can config by yourself if you use other server name or port number
+##### 2. front-end 
+*   install all require packages. see 1.2
+*   use the command ``npm run serve`` 
+#### 1.2 to install all the require packages, you need to 
+*   first install the 'npm'(node package manager), 
+*   then change disk to the 'mydevstore' and run the command:
 ```
 npm install
 ```
 
 ### 2.Recommend method to load the project:
 * Compiles and hot-reloads for development
+* Change disk to 'mydevstore'
+* Run command
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-*  To solve the across host problem, the proxy configuration in Vue has been changed. 
-Therefore, the npm run build is not acceptable.
-```
-npm run build
-```
-
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

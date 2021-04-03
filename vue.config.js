@@ -15,11 +15,11 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://mydevstoreAPI.com:8888/api', // 后台请求地址
+        target: 'http://mydevstoreAPI.com:8888/api', // back-end host
         ws: true,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': '' //通过pathRewrite重写地址，将前缀/api转为/
+          '^/api': '' // rewrite '/api' as ''
         }
       }
     }

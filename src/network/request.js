@@ -3,7 +3,7 @@ import axios from "axios";
 export function request(config) {
   // create request instance
   const instance = axios.create({
-     // baseURL:'http://mydevstoreAPI.com:8888/api',
+     // baseURL:'http://mydevstoreAPI.com:8888/api/',
     baseURL:'/api/',
     timeout:1000,
   });
