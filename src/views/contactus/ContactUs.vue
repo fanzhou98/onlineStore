@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="container-fluid shadow-sm p-4 ">
       <div class="row">
-        <div class="col p-3">
+        <div class="col-sm-12 p-3">
           <form>
             <div class="form-group">
               <label for="exampleFormControlInput1">Email address</label>

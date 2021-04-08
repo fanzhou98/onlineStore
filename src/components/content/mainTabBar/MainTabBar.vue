@@ -8,17 +8,17 @@
       </TabBarItem>
 
       <!--HOME-->
-      <TabBarItem path="/home" class="col-3">
+      <TabBarItem path="/home" class="col-3 p-0">
         <div class="nav-text" slot="item-name">HOME</div>
       </TabBarItem>
 
       <!--SHOP-->
-      <TabBarItem path="/shop" class="col-3">
+      <TabBarItem path="/shop" class="col-3 p-0">
         <div class="nav-text" slot="item-name">SHOP</div>
       </TabBarItem>
 
       <!--CONTACT US-->
-      <TabBarItem path="/contact" class="col-3">
+      <TabBarItem path="/contact" class="col-3 p-0">
         <div class="nav-text" slot="item-name">CONTACT US</div>
       </TabBarItem>
     </TabBar>

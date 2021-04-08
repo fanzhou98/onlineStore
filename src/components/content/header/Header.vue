@@ -4,34 +4,37 @@
       <div class="row d-flex justify-content-around" id="header-wrap">
 
         <!--Welcome and cart basic information-->
-        <div class="col-md-6 align-items-center d-flex">
-          <button type="button" class="btn btn-success text-nowrap" @click="itemClick('/home')">WELCOME</button>
-          <div v-show="isLogged">
-            <div class="text ml-2">{{cartLength}} items in your cart</div>
-            <div class="text ml-2">Total price: $ {{totalPrice}}</div>
+        <div class="col-12">
+          <div class="row">
+            <div class="col-lg-6 col-sm-12 d-flex justify-content-start align-items-center">
+              <button type="button" class="btn btn-success text-nowrap d-sm-none d-md-block" @click="itemClick('/home')">WELCOME</button>
+              <div v-show="isLogged">
+                <div class="text ml-2 flex-center">{{cartLength}} items in your cart</div>
+                <div class="text ml-2 flex-center">Total price: $ {{totalPrice}}</div>
+              </div>
+            </div>
+
+
+            <!--Right hand view when not logged-->
+            <div class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-end text-white" v-if="!isLogged">
+              <a href="" onclick="return false;" class="mr-4"
+                 v-for="(value, name) in this.nameList" :key="value"
+                 @click="itemClick(value)">{{name}}</a>
+            </div>
+
+            <!--Right hand veiw when logged-->
+            <div v-else class="col-lg-6 col-sm-12 d-flex align-items-center justify-content-end text-white text-center">
+              <a href="" onclick="return false;" @click="itemClick('/profile')">My Account</a>
+              <a href="" onclick="return false;" @click="itemClick('/cart')" class="ml-2">Go To Cart</a>
+              <a href="" onclick="return false;" @click="itemClick('/history')" class="mr-3 ml-2">Browser History</a>
+              <img :src="userPhoto" alt="" style="width: 40px; height: 40px">
+
+              <div>
+                <a>{{username}}</a>
+                <a class="btn btn-secondary" @click="LogOut" >log out</a>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <!--Right hand view when not logged-->
-        <div class="col-md-5 d-flex align-items-center justify-content-end text-white" v-if="!isLogged">
-          <a href="" onclick="return false;" class="mr-4"
-             v-for="(value, name) in this.nameList" :key="value"
-             @click="itemClick(value)">{{name}}</a>
-        </div>
-
-        <!--Right hand veiw when logged-->
-        <div v-else class="col-md-6 d-flex align-items-center justify-content-end text-white">
-          <a href="" onclick="return false;" @click="itemClick('/profile')">My Account</a>
-          <a href="" onclick="return false;" @click="itemClick('/cart')" class="ml-2">Go To Cart</a>
-          <a href="" onclick="return false;" @click="itemClick('/history')" class="mr-3 ml-2">Browser History</a>
-
-          <img :src="userPhoto" alt="" style="width: 40px; height: 40px">
-
-          <div>
-            <a>{{username}}</a>
-            <a class="btn btn-secondary" @click="LogOut" >log out</a>
-          </div>
-
         </div>
 
       </div>
@@ -122,5 +125,11 @@
     border-radius: 5px;
     outline: none;
     margin: 10px;
+  }
+  .flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 </style>

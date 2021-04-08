@@ -2,15 +2,15 @@
   <div>
     <div class="wrap mb-1 shadow-sm" style="width: 100vw">
       <div class="row no-gutters">
-
+        <!-- image -->
         <div class="col-3 d-flex justify-content-center">
           <img :src="global_const.GoodsImage_Prefix + cartItem.image" class="p-2" alt="" style="height: 200px; width: 150px; border-radius: 20px">
         </div>
-
+        <!-- name -->
         <div class="col-2">
           <h5 class="card-title">{{cartItem.name}}</h5>
         </div>
-
+        <!-- add/minus number -->
         <div class="col-2 count d-flex align-items-center justify-content-around">
           <div>
             <a class="btn btn-primary" @click="minusNum"><i class="fa fa-minus"></i></a>
@@ -20,14 +20,14 @@
             <a class="btn btn-primary" @click="addNum"><i class="fa fa-plus"></i></a>
           </div>
         </div>
-
+        <!-- total price -->
         <div class="col-2">
           <p class="card-text text-right">Total price: ${{cartItem.total_price}}</p>
         </div>
-
-        <div class="col-2">
-          <a class="btn btn-danger" @click="deleteCartItem(cartItem.uid, cartItem.item_id)"><i class="fa fa-trash"></i></a>
-          <a class="btn btn-success ml-1" data-toggle="modal" data-target="#order_modal"><i class="fa fa-credit-card"></i></a>
+        <!-- option button -->
+        <div class="col-3">
+          <a class="btn btn-danger" @click="deleteCartItem(cartItem.uid, cartItem.item_id)"><i class="fa fa-trash"> delete</i></a>
+          <a class="btn btn-success ml-1" data-toggle="modal" data-target="#order_modal"><i class="fa fa-credit-card justify-content-center align-items-center text-center"> pay</i> </a>
         </div>
       </div>
     </div>
@@ -139,6 +139,7 @@
               uid: this.cartItem.uid,
               item_id :this.cartItem.item_id
             }
+
             // Delete goods form cart list
             deleteGoods(params).then(res=>{
               if(res.code === 200){

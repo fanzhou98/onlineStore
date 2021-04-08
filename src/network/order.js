@@ -41,3 +41,14 @@ export function deleteOrder(order_id) {
     }
   })
 }
+
+export function getShippingTrack(uid) {
+  return request({
+    method: 'get',
+    url:'/order/',
+    params:{
+      action:'getShippingTrack',
+      uid
+    }
+  })
+}

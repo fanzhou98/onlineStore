@@ -96,7 +96,7 @@
     display: block;
     background: none;
     text-align: center;
-    width: 500px;
+    width: 50%;
     height: 70px;
     padding: 15px 5px;
     margin:20px auto;
@@ -122,7 +122,7 @@
   }
   /* input-form transformation*/
   .input-form:focus{
-    width: 800px;
+    width: 80%;
     border-color: #27ae60;
   }
   .submit:hover{

@@ -2,11 +2,11 @@
   <div>
     <div class="container-fluid m-0">
       <div class="row">
-        <div class="col login-wrap">
+        <div class="co-sm-12 login-wrap">
           <form method="post">
             <h1>Login</h1>
-            <input type="text" name ="username" placeholder="Username" class="input-form" v-model="username">
-            <input type="password" name="password" placeholder="Password" class="input-form" v-model="password"  @keyup.enter="ItemClick">
+              <input type="text" name ="username" placeholder="Username" class="input-form" v-model="username">
+              <input type="password" name="password" placeholder="Password" class="input-form" v-model="password"  @keyup.enter="ItemClick">
           </form>
           <div>
             <button  @click="ItemClick">Login</button>
@@ -102,7 +102,7 @@
     font-size: 25px;
     border: 2px solid #0a3d62;
     padding: 14px 10px; /*上下14px，左右10px*/
-    width: 500px;
+    width: 50%;
     height: 70px;
     outline: none;
     color: black;
@@ -110,7 +110,7 @@
     transition: 0.25s;
   }
   .input-form:focus{
-    width: 800px;
+    width: 80%;
     border-color: #27ae60;  /*当鼠标点击停留在表单时*/
   }
 

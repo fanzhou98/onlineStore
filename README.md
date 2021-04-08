@@ -13,7 +13,12 @@ you can config by yourself if you use other server name or port number
 *   install all require packages. see 1.2
 *   use the command ``npm run serve`` 
 #### 1.2 to install all the require packages, you need to 
-*   first install the 'npm'(node package manager), 
+*   first install the 'node' and 'npm'(node package manager) from the link https://nodejs.org/en/download/
+````
+# check version
+node -v
+npm -v
+````
 *   then change disk to the 'mydevstore' and run the command:
 ```
 npm install

@@ -33,8 +33,6 @@ Vue.use(Toast, options);
 import global_const from 'common/const'
 Vue.prototype.global_const = global_const
 
-
-
 new Vue({
   router,
   store,

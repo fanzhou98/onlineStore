@@ -10,18 +10,23 @@ VueRouter.prototype.push = function push(location) {
 }
 
 // import components
-const Home = ()=>import("../views/home/Home")
-const Profile = ()=> import( "../views/profile/Profile")
+const Home = ()=>import("views/home/Home")
+const Profile = ()=> import( "views/profile/Profile")
 const Register =()=> import("components/common/register/Register")
 const Login = ()=> import("components/common/login/Login")
 const Cart = ()=> import("views/cart/Cart")
 const Shop = ()=> import("views/shop/Shop")
+
+// Profile
 const Order = ()=> import("views/profile/profileChildComponents/MyOrders")
 const EditAccount = ()=> import("views/profile/profileChildComponents/EditAccount")
 const ChangePassword = ()=> import("views/profile/profileChildComponents/ChangePassword")
 const DeleteAccount = ()=> import("views/profile/profileChildComponents/DeleteAccount")
+const ShippingTrack = ()=> import("views/profile/profileChildComponents/ShippingTrack")
+
 const History = ()=> import("views/history/History")
 const ContactUs = ()=> import("views/contactus/ContactUs")
+
 // router parameters
 // const login = [
 //
@@ -83,7 +88,7 @@ const routes = [
       },
       {
         path:'order',
-        component:Order
+        component:Order,
       },
       {
         path:'account',
@@ -96,6 +101,10 @@ const routes = [
       {
         path:'delete-account',
         component: DeleteAccount
+      },
+      {
+        path:'shipping',
+        component:ShippingTrack
       }
     ]
   },

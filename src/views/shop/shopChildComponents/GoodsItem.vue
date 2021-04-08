@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 goods_item d-block align-items-center mb-2 p-2 shadow-sm" @click.stop="openPopWindow">
+  <div class="col-sm-4 goods_item d-block align-items-center mb-2 p-2 shadow-sm" @click.stop="openPopWindow">
     <!--Goods Image-->
     <div class="d-flex justify-content-between align-items-center">
       <img :src="global_const.GoodsImage_Prefix + this.item.image" alt="" class="goods_image m-auto">
@@ -19,7 +19,7 @@
         </a>
         <!--Like-->
         <a class="btn btn-warning mb-2" style="border-radius: 10px">
-          <i class="fa fa-star-o fa-2x" :class="{isFavourite:this.isFavourite}" style="color: white"></i>
+          <i class="fa fa-star-o fa-2x" style="color: white"></i>
         </a>
       </div>
     </div>

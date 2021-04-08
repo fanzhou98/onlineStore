@@ -2,7 +2,7 @@
   <div>
     <div class="container-fluid mt-3">
       <div class="row">
-        <div class="col-3">
+        <div class="col-sm-3">
           <div class="card">
 
             <!--Title-->
@@ -23,7 +23,7 @@
         </div>
 
         <!--Goods List-->
-        <div class="col-9 goods_wrap">
+        <div class="col-sm-9 goods_wrap">
           <div class="row">
             <GoodsItem v-for="(item,idx) in this.goodsList[this.currentCate]" :key=idx :item="item"
                        @addToCart="addToCart($event)"></GoodsItem>
@@ -83,19 +83,23 @@ import GoodsItem from "./shopChildComponents/GoodsItem";
       }
     },
     methods:{
+      // change category
       cateClick(cate){
         this.currentCate = cate
       },
+
       // user click cart button on the Shop page (GoodsItem pass addToCart(selectedGoods) event to Shop ->
       // Shop get the event by addToCart() ->  Shop pass the param as selectedGoods to PopUp to display
       addToCart(goodsItem){
         this.selectedGoods = goodsItem
         this.showAddToCart = true
       },
+
+      // close the pop up window
       closeWindow(){
         this.showAddToCart = false
       }
-    },
+    }
   }
 </script>
 

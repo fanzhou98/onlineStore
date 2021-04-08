@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container-fluid"  id="nav">
-      <div class="row text-center  align-items-center" >
+      <div class="row text-center  align-items-center">
         <slot></slot>
       </div>
     </div>
