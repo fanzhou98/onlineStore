@@ -1,6 +1,6 @@
 # mydevstore
-####@author Fan
-####@email fan.zhou17@student.xjtlu.edu.cn
+#### @author Fan
+#### @email fan.zhou17@student.xjtlu.edu.cn
 
 ## 1.Project setup 
 #### 1.1 Virtual host setup 
